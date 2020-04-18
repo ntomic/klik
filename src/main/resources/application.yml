@@ -8,7 +8,7 @@ logging.file.max-size: 10MB
 logging.file.max-history: 7
 logging.level.root: info
 
-cron.minutes.ten: 0 0/10 * * * ?
+cron.job: 0 0/10 * * * ?
 
 slack.authorization:
 slack.user:

@@ -14,7 +14,7 @@ public class KlikController {
 	Provider provider;
 
 	@GetMapping(value="/klik")
-	@Scheduled(cron = "${cron.minutes.ten}")
+	@Scheduled(cron = "${cron.job}")
 	void konzumKlik() throws IOException {
 		
 		provider.pingKonzum();
