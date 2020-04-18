@@ -8,7 +8,7 @@ If delivery is available (for location: Zagreb), the service sends a notificatio
 * JDK 10 (or newer)
 
 ## Setup
-####change yml file:  
+#### Change yml file:  
 1. change cron info if needed
 2. add username and channel for slack-bot
 3. add bearer authorization token for your slack-bot
@@ -16,7 +16,7 @@ If delivery is available (for location: Zagreb), the service sends a notificatio
 (paste cookie from konzum request headers when logged in to Konzum site)
 
 ## Running
-####Application
+#### Application
 * build with: gradlew build
 * run with: gradlew bootRun
 #### JAR
