@@ -8,20 +8,21 @@ If delivery is available (for location: Zagreb), the service sends a notificatio
 * JDK 10 (or newer)
 
 ## Setup
-* change yml file:  
+####change yml file:  
 1. change cron info if needed
-2. add bearer authorization token for your slack-bot
-eg. xoxp-215666943653-.......
-3. add konzum cookie authorization 
-(paste cookie from konzum request headers when logged in to Konzum site)  
-eg. token=InGJbFz..........
+2. add username and channel for slack-bot
+3. add bearer authorization token for your slack-bot
+4. add konzum cookie authorization 
+(paste cookie from konzum request headers when logged in to Konzum site)
 
 ## Running
+####Application
 * build with: gradlew build
 * run with: gradlew bootRun
+#### JAR
 * build jar with: gradlew bootJar
 * run jar with: java -jar klik.jar
-* put application.yml in the same location as .jar file  
-* if .yml path is different than .jar location, run .jar with jvm arg:  
+* put application.yml in the same location as .jar file;  
+if .yml path is different than .jar location, run .jar with jvm arg:  
  --spring.config.additional-location=file:{yml_file_path} 
 * stop jar with: ctrl + c

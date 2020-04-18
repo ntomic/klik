@@ -23,6 +23,10 @@ public class Provider {
 	
 	@Value("${slack.authorization}")
 	String slackAuthorization;
+	@Value("${slack.user}")
+	String slackUser;
+	@Value("${slack.channel}")
+	String slackChannel;
 	
 	@Value("${cookie.konzum}")
 	String cookieKonzum;
@@ -53,8 +57,8 @@ public class Provider {
 		}};
 		
 		var body = new HashMap<>() {{
-			put("username", "konzum-bot");
-			put("channel", "C010WQ59WNL");
+			put("username", slackUser);
+			put("channel", slackChannel);
 			if (isDeliveryAvailable) {
 				put("text", "\n konzum-klik delivery available: " + KONZUM_URL);
 			}

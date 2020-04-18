@@ -11,6 +11,8 @@ logging.level.root: info
 cron.minutes.ten: 0 0/10 * * * ?
 
 slack.authorization:
+slack.user:
+slack.channel:
 
 cookie.konzum:
 
