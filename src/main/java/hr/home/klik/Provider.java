@@ -31,20 +31,26 @@ public class Provider {
 	@Value("${cookie.konzum}")
 	String cookieKonzum;
 	
+	// todo refactor vars to message for slack
 	Boolean isDeliveryAvailable = Boolean.FALSE;
 	Boolean isParsingError = Boolean.FALSE;
 	
 	void pingKonzum() throws IOException {
 		
-		var doc = Jsoup.connect(KONZUM_URL).cookie("cookie", cookieKonzum).get();
+		var connection = Jsoup.connect(KONZUM_URL).cookie("cookie", cookieKonzum);
+		var doc = connection.get();
 		var deliveryTitle = doc.select("[data-tab-type=delivery] h2").first();
 		
 		if (deliveryTitle != null) {
+			isParsingError = Boolean.FALSE;
 			isDeliveryAvailable = !deliveryTitle.text().equals("Trenutno nema dostupnih termina");
 			log.info("Delivery availability: {}", isDeliveryAvailable);
-		} else {
+		} else if (connection.response().url().getPath().equals("/web/sign_in")){
 			isParsingError = Boolean.TRUE;
 			log.warn("Authorization error: unable to parse Konzum site!");
+		} else {
+			isParsingError = Boolean.TRUE;
+			log.warn("Unknown error with the site!");
 		}
 		
 	}
