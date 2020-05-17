@@ -17,8 +17,10 @@ public class KlikController {
 	@Scheduled(cron = "${cron.job}")
 	void konzumKlik() throws IOException {
 		
-		provider.pingKonzum();
-		provider.sendToSlack();
+		String parseMessage = provider.parseKonzumSite();
+		if(parseMessage != null) {
+			provider.sendNotificationToSlack(parseMessage);
+		}
 		
 	}
 }
